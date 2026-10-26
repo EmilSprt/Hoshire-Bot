@@ -1,0 +1,52 @@
+# ---------------------------------------------------------------------------
+# Ticket bot configuration
+#
+# Copy this file to "config.toml" and adjust the values.
+# You can get all IDs in Discord by right-clicking -> "Copy ID"
+# (Developer Mode must be enabled in Discord).
+# ---------------------------------------------------------------------------
+
+[discord]
+# Your server ID (required)
+guild_id = 0
+
+# ID of the text channel where the message with the "Create ticket" button
+# should be posted (required)
+panel_channel_id = 0
+
+# Moderator role ID: members with this role can see and close all tickets
+# (required)
+moderator_role_id = 0
+
+# ID of a category where new ticket channels are created.
+# 0 = no category (channels appear at the top/bottom of the channel list)
+ticket_category_id = 0
+
+# ID of a text channel for ticket logs (make it visible to moderators only!).
+# 0 = no log
+log_channel_id = 0
+
+
+[tickets]
+# How many open tickets may one user have at the same time?
+max_open_per_user = 1
+
+# Delay in seconds between "Ticket closed" and deleting the channel
+close_delay_seconds = 5
+
+# Send a text transcript of the chat to the log channel when closing?
+# WARNING: Requires the "Message Content Intent" in the Discord Developer Portal
+# (see README) and a configured log_channel_id.
+transcripts_enabled = false
+
+
+[messages]
+# All bot text. In welcome_description, {user} is replaced with the
+# ticket creator's mention.
+panel_title = "🎫 Support-Tickets"
+panel_description = "Do you need help or have a request?\nClick the button to create a private ticket."
+panel_button_label = "Create ticket"
+
+welcome_title = "Welcome to your ticket"
+welcome_description = "Hello {user}, please describe your request in as much detail as possible.\nA moderator will be with you shortly."
+close_button_label = "Close ticket"
